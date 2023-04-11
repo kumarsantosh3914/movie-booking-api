@@ -1,37 +1,38 @@
 const mongoose = require('mongoose');
-// Define the schema of the movie resource to be stored in database
-
+/**
+ * Define the schema of the movie resource to be stored in the db
+ */
 const movieSchema = new mongoose.Schema({
     name: {
-        Type: String,
+        type: String,
         required: true,
-        minLength: 2,
+        minLength: 2
     },
     description: {
         type: String,
         required: true,
-        minLength: 5,
+        minLength: 5
     },
     casts: {
         type: [String],
-        required: true,
+        required: true
     },
     trailerUrl: {
         type: String,
-        required: true,
+        required: true
     },
     language: {
         type: String,
         required: true,
-        default: "English",
+        default: "English"
     },
     releaseDate: {
-        Type: String,
-        required: true,
+        type: String,
+        required: true
     },
     director: {
         type: String,
-        required: true,
+        required: true
     },
     releaseStatus: {
         type: String,
@@ -40,5 +41,6 @@ const movieSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const Movie = mongoose.model("Movie", movieSchema);
-module.exports = Movie;
+const Movie = mongoose.model('Movie', movieSchema); // creates a new model
+
+module.exports = Movie; // returning the model 
