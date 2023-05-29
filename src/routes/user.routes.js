@@ -2,7 +2,7 @@ const userController = require('../controllers/user.controller');
 const userMiddleware = require('../middlewares/user.middlewares');
 const authMiddleware = require('../middlewares/auth.middlewares');
 
-const route = (app) => {
+const routes = (app) => {
     app.patch(
         '/api/v1/user/:id',
         authMiddleware.isAuthenticated,
@@ -11,3 +11,5 @@ const route = (app) => {
         userController.update,
     )
 }
+
+module.exports = routes;
