@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-
+const dotenv = require('dotenv');
+dotenv.config();
 const userService = require('../services/user.service');
 const { successResponseBody, errorResponseBody } = require('../utils/responsebody');
 
@@ -23,7 +24,7 @@ const signup = async (req, res) => {
 // Sign in a user
 const signin = async (req, res) => {
     try {
-        const user = await userService.getUserByEmail(req.body.eamil);
+        const user = await userService.getUserByEmail(req.body.email);
         const isValidPassword = await user.isValidPassword(req.body.password);
 
         if (!isValidPassword) {

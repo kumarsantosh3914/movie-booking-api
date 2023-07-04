@@ -23,6 +23,10 @@ app.use(bodyParser.json());
 
 mongoose.set('debug', true);
 
+app.get('/', (req, res) => {
+    res.send('Home');
+})
+
 MovieRoutes(app); // invoking movie routes
 bookingRoutes(app); // invoking booking routes
 theatreRoutes(app); // invoking theatre routes
@@ -31,10 +35,6 @@ userRoutes(app); // invoking user routes
 showRoutes(app); // invoking show routes
 paymentRoutes(app); // invoking payment routes
 
-
-app.get('/', (req, res) => {
-    res.send('Home');
-})
 
 app.listen(PORT, async () => {
     console.log(`Server started on port ${PORT}`);

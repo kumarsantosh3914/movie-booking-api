@@ -4,7 +4,7 @@ const showMiddlewares = require('../middlewares/show.middlewares');
 
 const routes = (app) => {
     app.post(
-        'api/v1/shows',
+        '/api/v1/shows',
         authMiddlewares.isAuthenticated,
         authMiddlewares.isAdminOrClient,
         showMiddlewares.validationCreateShowRequest,
@@ -12,19 +12,19 @@ const routes = (app) => {
     );
 
     app.get(
-        'api/v1/shows',
+        '/api/v1/shows',
         showController.getShow,
     );
 
     app.delete(
-        'api/v1/shows/:id',
+        '/api/v1/shows/:id',
         authMiddlewares.isAuthenticated,
         authMiddlewares.isAdminOrClient,
         showController.destroy
     );
 
     app.patch(
-        'api/v1/shows/:id',
+        '/api/v1/shows/:id',
         authMiddlewares.isAuthenticated,
         authMiddlewares.isAdminOrClient,
         showMiddlewares.validateShowUpdateRequest,

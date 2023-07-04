@@ -12,27 +12,27 @@ const routes = (app) => {
     );
 
     app.patch(
-        'api/v1/bookings/:id',
+        '/api/v1/bookings/:id',
         authMiddleware.isAuthenticated,
         bookingMiddleware.canChangeStatus,
         bookingController.update
     );
 
     app.get(
-        'api/v1/bookings',
+        '/api/v1/bookings',
         authMiddleware.isAuthenticated,
         bookingController.getBookings
     );
 
     app.get(
-        'api/v1/bookings/all',
+        '/api/v1/bookings/all',
         authMiddleware.isAuthenticated,
         authMiddleware.isAdmin,
         bookingController.getAllBookings,
     );
 
     app.get(
-        'api/v1/bookings/:id',
+        '/api/v1/bookings/:id',
         authMiddleware.isAuthenticated,
         bookingController.getBookingById,
     );
