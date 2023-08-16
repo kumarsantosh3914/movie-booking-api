@@ -6,7 +6,7 @@ const bookingMiddleware = require('../middlewares/booking.middlewares');
 const routes = (app) => {
     app.post(
         '/api/v1/bookings',
-        authMiddleware.isAuthenticated,
+        // authMiddleware.isAuthenticated,
         bookingMiddleware.validateBookingCreateRequest,
         bookingController.create
     );
